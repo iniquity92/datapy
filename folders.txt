@@ -1,0 +1,14 @@
+watches/bm/
+watches/bulgari/
+watches/cartier/
+watches/iwc/
+watches/jlec/
+watches/longines/
+watches/omega/
+pstones/bm/
+pstones/bulgari/
+pstones/cartier/
+pstones/iwc/
+pstones/jlec/
+pstones/longines/
+pstones/omega/
