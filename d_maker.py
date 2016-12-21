@@ -13,14 +13,15 @@ output_file = 'dict.pkl'
 
 for folder in folders:
     D = {}
-    b_key = re.findall(r'\/\w+\/',folder)
+    d = {}
+    b_key = re.findall(r'\/(\w+)\/',folder)
     fol = re.sub(r'\n','',folder)
     files = open(fol+'files.txt','r')
     for fl in files:
         fl_stripped = re.sub(r'\n','',fl)
 
         f = open(fol+fl_stripped,'r')
-
+        #print('reading file ---> %s \n',fol+fl_stripped)
         r = re.compile(r'productObj\d+\s+\=\s+\{[\w\W]+\}\;?')
        # L = []
         #D = {}
@@ -50,6 +51,9 @@ for folder in folders:
             if(not len(keys)==0 and not len(values)==0):
                 d[d_key] = dict(zip(keys,values))
 
+           # print('brand -> %s -->',b_key[0])
+           # print(d)
+            #print('\n')
 #print(d)
         #f.close()
         if b_key[0] not in D:
@@ -57,6 +61,7 @@ for folder in folders:
         else:
             D[b_key[0]].append(d)
     output = open(fol+output_file,'wb')
+   # print('writing to ---> %s \n',fol+output_file)
     pickle.dump(D,output)
     output.close()
    # files.close()
